@@ -3,27 +3,31 @@
 using namespace std;
 int main()
 {
-	string result;
-	int x, y;
-	double a,b;
-	cout<<"Enter number: ";
-	cin>>b;
-	x = b;
-	a = b - x;
-	do {//начало вычисления не дробной части
-		y = x % 2;
-		result = to_string(y) + result;
-		x = x / 2;
-	} while (x > 0);
-	result = result + ",";//добавление запятой
+	    string result;
+		int x, y;
+		double a, b, c;
+		cout << "Enter number: ";
+		cin >> b;
+		c = b;
+		b = fabs(b);
+		x = b;
+		a = b - x;
+		do {//начало вычисления не дробной части
+			y = x % 2;
+			result = to_string(y) + result;
+			x = x / 2;
+		} while (x > 0);
+		result = result + ",";//добавление запятой
 
-	int i = 10;
-	for (i;i > 1;i = i - 1) {//вычисление дробной части
-		a = a * 2;
-		if (a >= 1) {
-			a = a - 1; result = result + "1";
+		int i = 12;
+		for (i;i > 1;i = i - 1) {//начало вычисления дробной части
+			a = a * 2;
+			if (a >= 1) {
+				a = a - 1; result = result + "1";
+			}
+			else { result = result + "0"; }
+		}if (c >= 0) {
+			cout << "Result: " << result;
 		}
-		else { result = result + "0"; }
-	}
-	cout<<"Result: " << result;
+		else cout << "Result: " << "-" << result; return 0;
 }
